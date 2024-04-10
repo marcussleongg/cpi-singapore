@@ -50,7 +50,7 @@ p2014 <- ggplot(data = data2014, mapping = aes (x=QuartersAfter)) +
         geom_line(aes(y=PublicTransport, color='Public Transport')) +
         geom_line(aes(y=TelcoServices, color='Telco Services')) +
         geom_line(aes(y=Education, color='Education')) +
-        scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple")) +
+        scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple"), name='Legend') +
         labs(title='Plots of CPI vs Quarters after 2013 (2019 taken as base)', x='Quarters After 2013', y='CPI') + coord_cartesian(ylim=c(90,120))
 print(p2014)
 
@@ -74,6 +74,6 @@ p2019 <- ggplot(data = data2019, mapping = aes (x=QuartersAfter)) +
   geom_line(aes(y=PublicTransport, color='Public Transport')) +
   geom_line(aes(y=TelcoServices, color='Telco Services')) +
   geom_line(aes(y=Education, color='Education')) +
-  scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple")) +
+  scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple"), name='Legend') +
   labs(title='Plots of CPI vs Quarters after 2019 (2019 taken as base)', x='Quarters After 2019', y='CPI') + coord_cartesian(ylim=c(97,117))
 print(p2019)
