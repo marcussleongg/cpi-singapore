@@ -13,7 +13,8 @@ while (i>0) {
 genData$QuartersAfter <- add
 colnames(genData)[1] <- 'AllItems'
 genData$AllItems <- as.numeric(genData$AllItems)
-p1961 <- ggplot(data = genData, mapping = aes (x=QuartersAfter, y=AllItems)) + geom_line() + labs(title='Scatterplot of CPI of All Items vs Quarters after 1960 (2019 taken as base)', x='Quarters After 1960', y='CPI of All Items') + coord_cartesian(ylim=c(20,120))
+p1961 <- ggplot(data = genData, mapping = aes (x=QuartersAfter, y=AllItems)) + geom_line() + labs(title='Scatterplot of CPI of All Items vs Quarters after 1960 (2019 taken as base)', x=NULL, y='CPI of All Items') + coord_cartesian(ylim=c(20,120)) + theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), plot.title=element_text(size=15)) +
+         scale_x_continuous(breaks=c(0,40,80,120,160,200,240), labels=c("1960", "1970", "1980", "1990", "2000", "2010", "2020"))
 print(p1961)
 
 #data for CPI from 2014 to 2023
@@ -51,7 +52,9 @@ p2014 <- ggplot(data = data2014, mapping = aes (x=QuartersAfter)) +
         geom_line(aes(y=TelcoServices, color='Telco Services')) +
         geom_line(aes(y=Education, color='Education')) +
         scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple"), name='Legend') +
-        labs(title='Plots of CPI vs Quarters after 2013 (2019 taken as base)', x='Quarters After 2013', y='CPI') + coord_cartesian(ylim=c(90,120))
+        labs(title='Plots of CPI vs Quarters after 2013 (2019 taken as base)', x=NULL, y='CPI') + coord_cartesian(ylim=c(90,120)) +
+        theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), plot.title=element_text(size=15)) +
+        scale_x_continuous(breaks=c(0,4,8,12,16,20,24,28,32,36,40), labels=c("2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"))
 print(p2014)
 
 #data for CPI from 2019 to 2023
@@ -75,5 +78,10 @@ p2019 <- ggplot(data = data2019, mapping = aes (x=QuartersAfter)) +
   geom_line(aes(y=TelcoServices, color='Telco Services')) +
   geom_line(aes(y=Education, color='Education')) +
   scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple"), name='Legend') +
-  labs(title='Plots of CPI vs Quarters after 2019 (2019 taken as base)', x='Quarters After 2019', y='CPI') + coord_cartesian(ylim=c(97,117))
+  labs(title='Plots of CPI vs Quarters after 2018 (2019 taken as base)', x=NULL, y='CPI') +
+  coord_cartesian(ylim=c(97,117)) +
+  theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), plot.title=element_text(size=15)) +
+  scale_x_continuous(breaks=c(0,4,8,12,16,20), labels=c("2019", "2020", "2021", "2022", "2023", "2024"))
 print(p2019)
+pAll2019 <- ggplot(data = data2019, mapping = aes(x=QuartersAfter, y=AllItems)) + geom_line() + labs(title='Scatterplot of CPI of All Items vs Quarters after 2018 (2019 taken as base)', x=NULL, y='CPI of All Items') + coord_cartesian(ylim=c(98,116)) + theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), plot.title=element_text(size=15)) + scale_x_continuous(breaks=c(0,4,8,12,16,20), labels=c("2019", "2020", "2021", "2022", "2023", "2024"))
+print(pAll2019)
