@@ -9,6 +9,7 @@ html, body {
 img {
     width: 600px;
     outline: 1px solid black;
+    cursor: pointer;
 }
 
 .headers {
@@ -52,4 +53,27 @@ h1 {
 #fourth {
     background-color: #8e8e8e;
     padding: 10px;
+}
+
+#imgone_popup, #imgtwo_popup, #imgthree_popup, #imgfour_popup, #imgfive_popup, #imgsix_popup, #imgseven_popup, #imgeight_popup {
+    width: 1050px;
+    border: 1px solid black;
+    background: #e5e5e5;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
+}
+
+#imgone_popup img, #imgtwo_popup img, #imgthree_popup img, #imgfour_popup img, #imgfive_popup img, #imgsix_popup img, #imgseven_popup img, #imgeight_popup img {
+    width: 92%;
+}
+
+#close {
+    cursor: pointer;
 }
