@@ -58,9 +58,7 @@ p2014 <- ggplot(data = data2014, mapping = aes (x=QuartersAfter)) +
 print(p2014)
 
 #data for CPI from 2019 to 2023
-data2019 <- NULL
 data2019 <- data2014[1:20, 1:7]
-data2019
 i = 20
 add2019 <- c()
 while (i>0) {
