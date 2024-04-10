@@ -54,3 +54,26 @@ p2014 <- ggplot(data = data2014, mapping = aes (x=QuartersAfter)) +
         labs(title='Plots of CPI vs Quarters after 2013 (2019 taken as base)', x='Quarters After 2013', y='CPI') + coord_cartesian(ylim=c(90,120))
 print(p2014)
 
+#data for CPI from 2019 to 2023
+data2019 <- NULL
+data2019 <- data2014[1:20, 1:7]
+data2019
+i = 20
+add2019 <- c()
+while (i>0) {
+  add2019 <- append(add2019, i)
+  i <- i - 1
+}
+data2019$QuartersAfter <- add2019
+data2019
+p2019 <- ggplot(data = data2019, mapping = aes (x=QuartersAfter)) +
+  geom_line(aes(y=AllItems, color='All Items')) +
+  geom_line(aes(y=FoodExclServices, color='Food Excl Food Serving Services')) +
+  geom_line(aes(y=HousingUtilities, color='Housing & Utilities')) +
+  geom_line(aes(y=Healthcare, color='Healthcare')) +
+  geom_line(aes(y=PublicTransport, color='Public Transport')) +
+  geom_line(aes(y=TelcoServices, color='Telco Services')) +
+  geom_line(aes(y=Education, color='Education')) +
+  scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple")) +
+  labs(title='Plots of CPI vs Quarters after 2019 (2019 taken as base)', x='Quarters After 2019', y='CPI') + coord_cartesian(ylim=c(97,117))
+print(p2019)
