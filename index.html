@@ -3,10 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Singapore CPI Data Analysis</title>
-  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Analysis of Data of Singapore's Consumer Price Index (CPI)</h1>
-  <div id="container"></div>
+    <div class="headers">
+        <h1>Analysis of Data of Singapore's Consumer Price Index (CPI)</h1>
+        <p><em>Data is up to the 4th quarter of 2023, where 2019 is taken as the base of CPI=100</em></p>
+    </div>
+    <div id="first">
+        <p>Firstly, I'm analyzing the change in CPI for All Items. Data in the first graph is from 1961 to 2023, while data in the second graph is from 2019 to 2023. Click on the graph to zoom in!</p>
+        <img src="images/1960plot.jpeg" alt="graph of changes in CPI of All Items from 1961 to 2023">
+        <img src="images/2019Allplot.jpeg" alt="graph of changes in CPI of All Items from 2019 to 2023">
+    </div>
+    <div id="second">
+        <p>Next, I'm looking at the changes in CPI for individual essential goods/services, plotted along with the changes in CPI for All Items.</p>
+        <img src="images/2013plot.jpeg" alt="graph of changes in CPI of individual items from 2014 to 2023">
+        <img src="images/2019plot.jpeg" alt="graph of changes in CPI of individual goods/services from 2019-2023">
+        <p>Some conclusions that can be drawn are that before 2019, in comparison to other goods and services, the CPI for Housing & Utilities were much higher. The opposite was observed in the period from 2019 to 2023. Looking at the second graph, it is observed that the CPI for Public Transport and Food (excluding food serving services) were much higher than that for other goods and services.</p>
+    </div>
+    <div id="third">
+        <p>I also looked at the relationship between changes in CPI of different goods and services. Some results were as expected, like how CPI of Food Serving Services would increase when CPI of Gas increased, and CPI of Food in general increased when CPI of Petrol increased.</p>
+        <img src="images/foodservsgasplot.jpeg" alt="graph of CPI of food serving services against CPI of gas">
+        <img src="images/foodvpetrolplot.jpeg" alt="graph of CPI of food against CPI of petrol">
+    </div>
+    <div id="fourth">
+        <p>There were also interesting observations when comparing the CPI of different Food Serving Services (namely Restaurant Food, Fast Food, and Hawker Food) against the CPI of Electricity and Gas, separately.</p>
+        <img src="images/foodvgasplot.jpeg" alt="graph of CPI of different food serving services against CPI of gas">
+        <img src="images/foodvelectricityplot.jpeg" alt="graph of CPI of different food serving services against CPI of electricity">
+        <p>In the first graph, we can see that the line for Hawker Food has the steepest gradient. This suggests that the price of Hawker Food is the most sensitive to the price of Gas, compared to Restaurant and Fast Food. In the second graph, the line for Hawker Food remains to have the steepest gradient, meaning its price is also the most sensitive to the price of Electricity. A possible explanation is the independent nature of Hawker Food stalls. Hawkers can easily adjust the prices of their food according to their costs, whereas Restaurants and Fast Food chains likely have a longer and more complicated process in adjusting their prices due to their management.</p>
+        <p>It is also observed that as CPI of Electricity increases, CPI of Fast Food remains to be higher than that of Hawker and Restaurant Food. This could be due to the fact that Fast Food chains typically operate throughout the day, for longer hours compared to most Restaurants and Hawker stalls, hence having higher costs for Electricity. This could translate to Fast Food chains setting higher prices.</p>
+    </div>
 </body>
 </html>
