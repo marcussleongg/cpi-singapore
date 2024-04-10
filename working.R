@@ -42,6 +42,15 @@ data2014$TelcoServices <- as.numeric(data2014$TelcoServices)
 colnames(data2014)[7] <- 'Education'
 data2014$Education <- as.numeric(data2014$Education)
 data2014
-p2014 <- ggplot(data = data2014, mapping = aes (x=QuartersAfter, y=AllItems)) + geom_line() + labs(title='Scatterplot of CPI of All Items vs Quarters after 2013 (2019 taken as base)', x='Quarters After 2013', y='CPI of All Items') + coord_cartesian(ylim=c(98,116))
+p2014 <- ggplot(data = data2014, mapping = aes (x=QuartersAfter)) +
+        geom_line(aes(y=AllItems, color='All Items')) +
+        geom_line(aes(y=FoodExclServices, color='Food Excl Food Serving Services')) +
+        geom_line(aes(y=HousingUtilities, color='Housing & Utilities')) +
+        geom_line(aes(y=Healthcare, color='Healthcare')) +
+        geom_line(aes(y=PublicTransport, color='Public Transport')) +
+        geom_line(aes(y=TelcoServices, color='Telco Services')) +
+        geom_line(aes(y=Education, color='Education')) +
+        scale_color_manual(values=c("black", "red", "blue", "pink", "green", "yellow", "purple")) +
+        labs(title='Plots of CPI vs Quarters after 2013 (2019 taken as base)', x='Quarters After 2013', y='CPI') + coord_cartesian(ylim=c(90,120))
 print(p2014)
 
