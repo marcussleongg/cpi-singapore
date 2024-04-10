@@ -13,6 +13,6 @@ while (i>0) {
 genData$QuartersAfter <- add
 colnames(genData)[1] <- 'AllItems'
 genData$AllItems <- as.numeric(genData$AllItems)
-p <- ggplot(data = genData, mapping = aes (x=QuartersAfter, y=AllItems)) + geom_line() + geom_smooth(method='lm', se=FALSE) + labs(title='Scatterplot of CPI of All Items vs Quarters after 1960', x='Quarters After 1960', y='CPI of All Items') + coord_cartesian(ylim=c(20,120))
-print(p)
+p1961 <- ggplot(data = genData, mapping = aes (x=QuartersAfter, y=AllItems)) + geom_line() + labs(title='Scatterplot of CPI of All Items vs Quarters after 1960 (2019 taken as base)', x='Quarters After 1960', y='CPI of All Items') + coord_cartesian(ylim=c(20,120))
+print(p1961)
 
