@@ -85,3 +85,47 @@ p2019 <- ggplot(data = data2019, mapping = aes (x=QuartersAfter)) +
 print(p2019)
 pAll2019 <- ggplot(data = data2019, mapping = aes(x=QuartersAfter, y=AllItems)) + geom_line() + labs(title='Scatterplot of CPI of All Items vs Quarters after 2018 (2019 taken as base)', x=NULL, y='CPI of All Items') + coord_cartesian(ylim=c(98,116)) + theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), plot.title=element_text(size=15)) + scale_x_continuous(breaks=c(0,4,8,12,16,20), labels=c("2019", "2020", "2021", "2022", "2023", "2024"))
 print(pAll2019)
+#relationship data between gas&electricity and other CPIs
+relData <- as.data.frame(t(data[c(2,49,50,51,52,72,73,101,130), 2:41]))
+relData
+colnames(relData)[1] <- 'Food'
+relData$Food <- as.numeric(relData$Food)
+colnames(relData)[2] <- 'FoodServingServices'
+relData$FoodServingServices <- as.numeric(relData$FoodServingServices)
+colnames(relData)[3] <- 'RestaurantFood'
+relData$RestaurantFood <- as.numeric(relData$RestaurantFood)
+colnames(relData)[4] <- 'FastFood'
+relData$FastFood <- as.numeric(relData$FastFood)
+colnames(relData)[5] <- 'HawkerFood'
+relData$HawkerFood <- as.numeric(relData$HawkerFood)
+colnames(relData)[6] <- 'Electricity'
+relData$Electricity <- as.numeric(relData$Electricity)
+colnames(relData)[7] <- 'Gas'
+relData$Gas <- as.numeric(relData$Gas)
+colnames(relData)[8] <- 'Petrol'
+relData$Petrol <- as.numeric(relData$Petrol)
+colnames(relData)[9] <- 'Education'
+relData$Education <- as.numeric(relData$Education)
+relData
+foodvpetrolPlot <- ggplot(data = relData, aes(x=Petrol, y=Food)) + geom_point() + geom_smooth(method='lm', se=FALSE) + labs(title='CPI of Food vs CPI of Petrol (From 2014-2023)', x='CPI of Petrol', y='CPI of Food')
+print(foodvpetrolPlot)
+foodservingvgasPlot <- ggplot(data = relData, aes(x=Gas, y=FoodServingServices)) + geom_point() + geom_smooth(method='lm', se=FALSE) + labs(title='CPI of Food Serving Services vs CPI of Gas (From 2014-2023)', x='CPI of Gas', y='CPI of Food Serving Services')
+print(foodservingvgasPlot)
+educationvelectricityPlot <- ggplot(data = relData, aes(x=Electricity, y=Education)) + geom_point() + geom_smooth(method='lm', se=FALSE) + labs(title='CPI of Education vs CPI of Electricity (From 2014-2023)', x='CPI of Education', y='CPI of Electricity')
+print(educationvelectricityPlot)
+difffoodsvelectricityPlot <- ggplot(data=relData, aes(x=Electricity)) +
+                    geom_smooth(aes(y=RestaurantFood, color='Restaurant Food'), method='lm', se=FALSE) +
+                    geom_smooth(aes(y=FastFood, color='Fast Food'), method='lm', se=FALSE) +
+                    geom_smooth(aes(y=HawkerFood, color='Hawker Food'), method='lm', se=FALSE) +
+                    scale_color_manual(values=c("red", "blue", "green")) +
+  theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), plot.title=element_text(size=15)) +
+  labs(title='Plots of CPI Food Services vs CPI of Electricity', x='CPI of Electricity', y='CPI of Food Services')
+print(difffoodsvelectricityPlot)
+difffoodsvgasPlot <- ggplot(data=relData, aes(x=Gas)) +
+  geom_smooth(aes(y=RestaurantFood, color='Restaurant Food'), method='lm', se=FALSE) +
+  geom_smooth(aes(y=FastFood, color='Fast Food'), method='lm', se=FALSE) +
+  geom_smooth(aes(y=HawkerFood, color='Hawker Food'), method='lm', se=FALSE) +
+  scale_color_manual(values=c("red", "blue", "green")) +
+  theme(axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), plot.title=element_text(size=15)) +
+  labs(title='Plots of CPI Food Services vs CPI of Gas', x='CPI of Gas', y='CPI of Food Services')
+print(difffoodsvgasPlot)
