@@ -1,3 +1,5 @@
+Website can be viewed at https://marcussleongg.github.io/cpi-singapore/
+
 This is a project which combines what I've learned about HTML, CSS, and Javascript from The Odin
 Project so far. It also serves as a refresher for my knowledege on data analysis with R.
 
